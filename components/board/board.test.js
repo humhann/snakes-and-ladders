@@ -23,6 +23,4 @@ describe('Board', () => {
       expect(typeof space).toBe('object');
     }
   });
-
-  // TODO: Board contains players
 });
