@@ -11,7 +11,18 @@ describe('Board', () => {
       rows,
     });
 
-    expect(Array.isArray(board.fields)).toBeTruthy();
-    expect(board.fields.length).toBe(expected);
+    // board.spaces is array
+    expect(Array.isArray(board.spaces)).toBeTruthy();
+
+    // board.spaces matches expected length
+    expect(board.spaces.length).toBe(expected);
+
+    // board.spaces contains array of objects
+    // TODO: check object type
+    for (const space of board.spaces) {
+      expect(typeof space).toBe('object');
+    }
   });
+
+  // TODO: Board contains players
 });
