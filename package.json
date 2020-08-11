@@ -13,6 +13,7 @@
   "author": "Gregor Hann <ihumhann@gmail.com>",
   "license": "UNLICENSED",
   "devDependencies": {
-    "jest": "^26.3.0"
+    "jest": "^26.3.0",
+    "prettier": "2.0.5"
   }
 }
