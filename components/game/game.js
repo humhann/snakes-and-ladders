@@ -7,6 +7,7 @@ class Game {
       columns: 10,
       rows: 10,
     });
+    this.playerOnTurn = null;
   }
 
   addPlayer(player) {
@@ -22,9 +23,27 @@ class Game {
   }
 
   startGame() {
+    // position players to starting space
     for (const player of this.players) {
       this.movePlayer(player, 0);
     }
+
+    // TODO: move to a game loop
+    // start player turn
+    this.startNextPlayerTurn();
+  }
+
+  startNextPlayerTurn() {
+    if (!this.playerOnTurn) {
+      // TODO: should we use `this.players` directly or `this.getPlayers()`?
+      this.playerOnTurn = this.players[0];
+    }
+
+    // TODO: assign next player in line
+  }
+
+  getPlayerOnTurn() {
+    return this.playerOnTurn;
   }
 }
 
