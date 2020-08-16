@@ -2,14 +2,18 @@ import Game from './game';
 import Player from '../../models/player/player';
 
 describe('Game', () => {
-  const game = new Game();
+  let game;
 
-  game.addPlayer(Player({ name: 'Player 1' }));
-  game.addPlayer(Player({ name: 'Player 2' }));
+  beforeEach(() => {
+    game = new Game();
+
+    game.addPlayer(Player({ name: 'Player 1' }));
+    game.addPlayer(Player({ name: 'Player 2' }));
+
+    game.startGame();
+  });
 
   test('starts with players on initial position', () => {
-    game.startGame();
-
     expect(game.getPlayers()).toEqual(
       expect.arrayContaining([
         { name: 'Player 1', position: 0 },
@@ -18,9 +22,7 @@ describe('Game', () => {
     );
   });
 
-  test('turn starts with first player', () => {
-    game.startGame();
-
+  test('first turn starts with first player', () => {
     expect(game.getPlayerOnTurn()).toStrictEqual({
       name: 'Player 1',
       position: 0,
