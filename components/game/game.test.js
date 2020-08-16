@@ -31,7 +31,14 @@ describe('Game', () => {
 
   test.todo('turn continues with next player in line');
 
-  test.todo('moves player to correct space after dice rolls onto normal field');
+  test('moves player to correct space after dice rolls onto normal field', () => {
+    const playerClone = { ...game.getPlayerOnTurn() };
+    playerClone.position += 5;
+
+    game.playerThrowDice(5);
+
+    expect(game.getPlayerOnTurn()).toStrictEqual(playerClone);
+  });
 
   test.todo('moves player to correct space after dice rolls onto snake field');
 

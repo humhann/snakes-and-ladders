@@ -1,4 +1,5 @@
 import Board from '../../models/board/board';
+import Dice from '../dice/dice';
 
 class Game {
   constructor() {
@@ -44,6 +45,10 @@ class Game {
 
   getPlayerOnTurn() {
     return this.playerOnTurn;
+  }
+
+  playerThrowDice(input) {
+    this.playerOnTurn.position += Dice.throw(input);
   }
 }
 
