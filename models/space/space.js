@@ -1,6 +1,5 @@
-const Space = ({ index, players = [], isFirst = false, isLast = false }) => ({
+const Space = ({ index, isFirst = false, isLast = false }) => ({
   index,
-  players,
   isFirst,
   isLast,
 });
