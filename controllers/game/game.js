@@ -48,7 +48,10 @@ class Game {
   }
 
   playerThrowDice(input) {
-    this.playerOnTurn.position += Dice.throw(input);
+    const player = this.getPlayerOnTurn();
+    const newPosition = (player.position += Dice.throw(input));
+
+    this.movePlayer(player, newPosition);
   }
 }
 

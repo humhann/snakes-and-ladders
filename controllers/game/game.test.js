@@ -33,10 +33,13 @@ describe('Game', () => {
 
   test('moves player to correct space after dice rolls onto normal field', () => {
     const playerClone = { ...game.getPlayerOnTurn() };
+
     playerClone.position += 5;
-
     game.playerThrowDice(5);
+    expect(game.getPlayerOnTurn()).toStrictEqual(playerClone);
 
+    playerClone.position += 3;
+    game.playerThrowDice(3);
     expect(game.getPlayerOnTurn()).toStrictEqual(playerClone);
   });
 
