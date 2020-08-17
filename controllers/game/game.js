@@ -37,19 +37,19 @@ class Game {
   startNextPlayerTurn() {
     if (!this.playerOnTurn) {
       // TODO: should we use `this.players` directly or `this.getPlayers()`?
-      this.playerOnTurn = this.players[0];
+      this.playerOnTurnIndex = 0;
     }
 
     // TODO: assign next player in line
   }
 
   getPlayerOnTurn() {
-    return this.playerOnTurn;
+    return this.players[this.playerOnTurnIndex];
   }
 
   playerThrowDice(input) {
     const player = this.getPlayerOnTurn();
-    const newPosition = (player.position += Dice.throw(input));
+    const newPosition = player.position + Dice.throw(input);
 
     this.movePlayer(player, newPosition);
   }

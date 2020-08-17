@@ -32,14 +32,11 @@ describe('Game', () => {
   test.todo('turn continues with next player in line');
 
   test('moves player to correct space after dice rolls onto normal field', () => {
+    game.players = game.players.map((player) => ({ ...player, position: 3 }));
     const playerClone = { ...game.getPlayerOnTurn() };
 
     playerClone.position += 5;
     game.playerThrowDice(5);
-    expect(game.getPlayerOnTurn()).toStrictEqual(playerClone);
-
-    playerClone.position += 3;
-    game.playerThrowDice(3);
     expect(game.getPlayerOnTurn()).toStrictEqual(playerClone);
   });
 
