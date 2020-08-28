@@ -9,8 +9,13 @@ describe('Game', () => {
 
     game.addPlayer(Player({ name: 'Player 1' }));
     game.addPlayer(Player({ name: 'Player 2' }));
+    game.addPlayer(Player({ name: 'Player 3' }));
 
     game.startGame();
+  });
+
+  afterEach(() => {
+    game = null;
   });
 
   test('starts with players on initial position', () => {
@@ -18,6 +23,7 @@ describe('Game', () => {
       expect.arrayContaining([
         { name: 'Player 1', position: 0 },
         { name: 'Player 2', position: 0 },
+        { name: 'Player 3', position: 0 },
       ])
     );
   });
@@ -29,7 +35,25 @@ describe('Game', () => {
     });
   });
 
-  test.todo('turn continues with next player in line');
+  test('turn continues with next player in line', () => {
+    game.setNextPlayerOnTurn();
+    expect(game.getPlayerOnTurn()).toStrictEqual({
+      name: 'Player 2',
+      position: 0,
+    });
+
+    game.setNextPlayerOnTurn();
+    expect(game.getPlayerOnTurn()).toStrictEqual({
+      name: 'Player 3',
+      position: 0,
+    });
+
+    game.setNextPlayerOnTurn();
+    expect(game.getPlayerOnTurn()).toStrictEqual({
+      name: 'Player 1',
+      position: 0,
+    });
+  });
 
   test('moves player to correct space after dice rolls onto normal field', () => {
     game.players = game.players.map((player) => ({ ...player, position: 3 }));

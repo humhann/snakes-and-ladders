@@ -8,7 +8,7 @@ class Game {
       columns: 10,
       rows: 10,
     });
-    this.playerOnTurn = null;
+    this.playerOnTurnIndex = -1;
   }
 
   addPlayer(player) {
@@ -29,22 +29,17 @@ class Game {
       this.movePlayer(player, 0);
     }
 
-    // TODO: move to a game loop
-    // start player turn
-    this.startNextPlayerTurn();
-  }
-
-  startNextPlayerTurn() {
-    if (!this.playerOnTurn) {
-      // TODO: should we use `this.players` directly or `this.getPlayers()`?
-      this.playerOnTurnIndex = 0;
-    }
-
-    // TODO: assign next player in line
+    this.setNextPlayerOnTurn();
   }
 
   getPlayerOnTurn() {
     return this.players[this.playerOnTurnIndex];
+  }
+
+  setNextPlayerOnTurn() {
+    const nextPlayerIndex = this.playerOnTurnIndex + 1;
+    this.playerOnTurnIndex =
+      nextPlayerIndex < this.players.length ? nextPlayerIndex : 0;
   }
 
   playerThrowDice(input) {
