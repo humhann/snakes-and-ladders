@@ -5,7 +5,7 @@ Tiny web game rendition of traditional "snakes and ladders" game (aka. "chutes a
 Vanilla JavaScript + [Jest tests](https://jestjs.io/).
 
 Tried out Test Driven Development:
-1. Write a test that documenta a desired behaviour
+1. Write a test that documents a desired behaviour
 2. Test fails
 3. Implement a desired behaviour
 4. Test passes
