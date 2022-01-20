@@ -1,6 +1,6 @@
 # snakes-and-ladders
 
-Tiny web game rendition of traditional "snakes and ladders" (aka. chutes and ladders).
+Tiny web game rendition of traditional "snakes and ladders" game (aka. "chutes and ladders").
 
 Vanilla JavaScript + [Jest tests](https://jestjs.io/).
 
